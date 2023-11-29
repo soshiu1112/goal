@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('board')" :active="request()->routeIs('board')">
                     {{ __('対戦募集掲示板') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('regulations')" :active="request()->routeIs('regulations')">
+                    {{ __('対戦募集作成画面') }}
+                    </x-nav-link>
                 </div>
             </div>
 

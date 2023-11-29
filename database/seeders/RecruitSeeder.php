@@ -17,30 +17,49 @@ class RecruitSeeder extends Seeder
     public function run()
     {
         DB::table('recruits')->insert([
-            'matches_id' =>'1',
+            'regulation_id' =>'1',
             'user_id' => '1',
-            'rates_max' =>'2',
-            'rates_min' =>'1',
-            'remarks' => 'aiueo',
+            'remarks' => '飽きたらやめる',
+            'matches' => '20',
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
         DB::table('recruits')->insert([
-            'matches_id' =>'2',
+            'regulation_id' =>'2',
             'user_id' => '2',
-            'rates_max' =>'2',
-            'rates_min' =>'1',
-            'remarks' => 'aiueo',
+            'remarks' => '一回きり',
+            'matches' => '30',
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
         DB::table('recruits')->insert([
-            'matches_id' =>'3',
+            'regulation_id' =>'3',
             'user_id' => '3',
-          
-            'rates_max' =>'2',
-            'rates_min' =>'1',
-            'remarks' => 'aiueo',
+            'remarks' => '13',
+            'matches' => '10',
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);
+        DB::table('recruits')->insert([
+            'regulation_id' =>'4',
+            'user_id' => '4',
+            'remarks' => '５戦',
+            'matches' => '10',
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);
+        DB::table('recruits')->insert([
+            'regulation_id' =>'5',
+            'user_id' => '5',
+            'remarks' => '５戦',
+            'matches' => '10',
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);DB::table('recruits')->insert([
+            'regulation_id' =>'6',
+            'user_id' => '6',
+            'remarks' => '５戦',
+            'matches' => '10',
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);

@@ -14,12 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('recruits', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('matches_id')->constrained('matches');
+            $table->id();          
             $table->foreignId('user_id')->constrained('users');
-            $table->string('rates_max',10);
-            $table->string('rates_min',10);
-            $table->string('remarks',10);
+            $table->foreignId('regulation_id')->constrained('regulations')->nullable();
+            $table->string('matches')->nullabe();
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }

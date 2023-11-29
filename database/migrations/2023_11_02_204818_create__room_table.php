@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('message',100);
-            $table->string('roompass',5);
+            $table->integer('roompass');
             
             $table->timestamps();
         });
