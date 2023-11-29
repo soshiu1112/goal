@@ -19,7 +19,7 @@ class RoomSeeder extends Seeder
         DB::table('room')->insert([
             'user_id' => '1',
             'message' =>'1111',
-            'roompass' =>'1111',
+            'roompass' =>Int::random(4),
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);

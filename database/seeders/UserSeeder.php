@@ -20,9 +20,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => Str::random(10),
-            'password' => Hash::make('password'),
-            'email' =>Str::random(10).'@gmail.com',
+            'name' => 'soshiu1112',
+            'password' => Hash::make('pokarisu12'),
+            'email' =>'soshiu1112@gmail.com',
             'image_path' =>'aaa.png',
             'rate' =>'11',
             'introdution' =>'',
@@ -60,6 +60,28 @@ class UserSeeder extends Seeder
             'rate' =>'11',
             'introdution' =>'',
             'ingameName' =>'soshiu4',
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);
+            DB::table('users')->insert([
+            'name' => Str::random(10),
+            'password' => Hash::make('password'),
+            'email' =>Str::random(10).'@gmail.com',
+            'image_path' =>'aaa.png',
+            'rate' =>'11',
+            'introdution' =>'',
+            'ingameName' =>'soshiu5',
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);
+            DB::table('users')->insert([
+            'name' => Str::random(10),
+            'password' => Hash::make('password'),
+            'email' =>Str::random(10).'@gmail.com',
+            'image_path' =>'aaa.png',
+            'rate' =>'11',
+            'introdution' =>'',
+            'ingameName' =>'soshiu6',
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);

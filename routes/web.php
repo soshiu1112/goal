@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BoardController;
-
+use App\Http\Controllers\RecruitController;
+use App\Http\Controllers\RegulationController;
+use App\Http\Controllers\RoomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,9 +30,27 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/',function(){
+/*Route::get('/',function(){
     return view('goal.board');
 });
-Route::get('/recruite',[BoardController::class,'board'])->name('board');
+*/
+Route::controller(RecruitController::class)->middleware(['auth'])->group(function(){
+    Route::post('/','store')->name('store');
+    Route::get('/','board')->name('board');
+    
+    Route::get('/createRecruit','createRecruit')->name('regulations');
+    
+    Route::get('/room');
+    
+});
+
+Route::controller(RegulationController::class)->middleware(['auth'])->group(function(){
+
+    Route::get('/{regulation}','index')->name('index');
+});
+
+Route::controller(RoomController::class)->middleware(['auth'])->group(function(){
+    Route::get('/room/{room}','room')->name('room');
+});
 
 require __DIR__.'/auth.php';
