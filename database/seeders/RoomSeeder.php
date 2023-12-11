@@ -16,24 +16,57 @@ class RoomSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('room')->insert([
-            'user_id' => '1',
-            'message' =>'1111',
-            'roompass' =>Int::random(4),
+        DB::table('rooms')->insert([
+            'regulation_id' => 1,
+            'creater_id' =>  1,
+            'opponent_id' => null,
+            'remarks' => '飽きたらやめる',
+            'matches' =>  20,
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
-         DB::table('room')->insert([
-            'user_id' => '2',
-            'message' =>'1111',
-            'roompass' =>'1111',
+        DB::table('rooms')->insert([
+            'regulation_id' => 2,
+            'creater_id' =>  2,
+            'opponent_id' => null,
+            'remarks' => '一回きり',
+            'matches' =>  30,
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
-         DB::table('room')->insert([
-            'user_id' => '3',
-            'message' =>'1111',
-            'roompass' =>'1111',
+        DB::table('rooms')->insert([
+            'regulation_id' => 3,
+            'creater_id' =>  3,
+            'opponent_id' => null,
+            'remarks' => '13',
+            'matches' =>  10,
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);
+        DB::table('rooms')->insert([
+            'regulation_id' => 4,
+            'creater_id' =>  4,
+            'opponent_id' => null,
+            'remarks' => '５戦',
+            'matches' =>  10,
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);
+        DB::table('rooms')->insert([
+            'regulation_id' => 5,
+            'creater_id' =>  5,
+            'opponent_id' => null,
+            'remarks' => '５戦',
+            'matches' =>  10,
+            'created_at' => new Datetime(),
+            'updated_at' => new Datetime(),
+            ]);
+        DB::table('rooms')->insert([
+            'regulation_id' => 6,
+            'creater_id' =>  6,
+            'opponent_id' => null,
+            'remarks' => '５戦',
+            'matches' =>  10,
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
