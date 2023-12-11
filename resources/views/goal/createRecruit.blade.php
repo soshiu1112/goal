@@ -12,11 +12,12 @@
                 
                    
                 <p>対戦数について<br>
-                   <textarea cols="1" rows="1" name="recruit[matches]"></textarea> 
+                
+                   <textarea cols="1" rows="1" name="room[matches]"></textarea> 
                 </p>
                 <div class = "regulations">
                     
-                    <select name = "recruit[regulation_id]">
+                    <select name = "room[regulation_id]">
                         @foreach($regulations as $regulation)
                             <option value="{{ $regulation->id }}">{{ $regulation->rate }}
                             </option>
@@ -24,7 +25,7 @@
                     </select>
                 </div>
                 <p>対戦数について（任意）<br>
-                   <textarea cols="30" rows="5" name="recruit[remarks]"></textarea> 
+                   <textarea cols="30" rows="5" name="room[remarks]"></textarea> 
                 </p>
                 <input type="submit" value = "募集する"/>
             </form>

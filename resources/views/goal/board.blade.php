@@ -3,6 +3,7 @@
     <head>
         <meta charset = "utf-8">
         <title>Board</title>
+        <link href = "./public/css/board.css" rel = "stylesheet"> 
     </head>
     <x-app-layout>
         <x-slot name="header">募集掲示板</x-slot>
@@ -13,28 +14,29 @@
         <br>
         <p>レート範囲を絞り込む</p>
         @foreach($regulations as $regulation)
-        <a href="/{{$regulation->id}}">{{$regulation->rate}}</a>
+        <a href="/regulations/{{$regulation->id}}">{{$regulation->rate}}</a>
         @endforeach
-            @foreach($recruits as $recruit)
+            @foreach($rooms as $room)
                 <div class = 'match'>
-                    <h2 class='title'>{{$recruit->user->name}} 
+                    <h2 class='title'>{{$room->user->name}} 
                         
                         
                     </h2>
                     <p class = 'body'> 
-                        <a href = "/room/{{$recruit->user->name}}">対戦申し込みリンク</a>
+                        <a href = "/room/{{$room->id}}">対戦申し込みリンク</a>
                     </p>
                     
-                    <p>試合数{{$recruit->matches}}</p>
-                    <a href="/{{$recruit->regulation->id}}">レート範囲{{$recruit->regulation->rate}}</a>
+                    <p>試合数{{$room->matches}}</p>
+                    <a href="/regulations/{{$room->regulation->id}}">レート範囲{{$room->regulation->rate}}</a>
                     
-                    <p>備考 {{$recruit->remarks}}</p>
+                    <p>備考 {{$room->remarks}}</p>
                 </div>
+                ----------------------------------------------
             @endforeach
             
         </div>
         <div class='paginate'>
-            {{$recruits->links()}}
+            {{$rooms->links()}}
         </div>
     </body>
     </x-app-layout>

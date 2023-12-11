@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
-            $table->string('body',50);
-            $table->foreignId('room_id')->constrained('room');
+            $table->bigIncrements('id');
+            $table->foreignId('room_id')->constrained('rooms');
+            $table->foreignId('user_id')->comment('送信者');
+            $table->text('message')->comment('メッセージ');
             $table->timestamps();
         });
     }

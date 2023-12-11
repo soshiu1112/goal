@@ -1,31 +1,36 @@
+<!DOCTYPE HTML>
+<html lang = "ja">
+    <head>
+        <meta charset = "utf-8">
+        <title>Board2</title>
 </head>
     <x-app-layout>
-        <x-slot name="header">募集掲示板</x-slot>
+        
     <body>
         <h1>対戦募集掲示板</h1>
         <a href = "/createRecruit">募集する</a>
         <a href = "/profile">プロフィール登録</a>
         
-            @foreach($recruits as $recruit)
+            @foreach($rooms as $room)
                 <div class = 'match'>
-                    <h2 class='title'>{{$recruit->user->name}} 
+                    <h2 class='title'>{{$room->user->name}} 
                         
                         
                     </h2>
                     <p class = 'body'> 
-                        <a href = "/room">対戦申し込みリンク</a>
+                        <a href = "/room/{{$room->id}}">対戦申し込みリンク</a>
                     </p>
-                    <p>対戦数{{$recruit->matches}}</p>
-                    <p>レート上限{{ $recruit->regulation->rate}}</p>
+                    <p>対戦数{{$room->matches}}</p>
+                    <p>レート範囲{{ $room->regulation->rate}}</p>
                     
-                    <p> {{$recruit->remarks}}</p>
+                    <p> {{$room->remarks}}</p>
                     
                 </div>
             @endforeach
             
         </div>
         <div class='paginate'>
-            {{$recruits->links()}}
+            {{$rooms->links()}}
         </div>
     </body>
     </x-app-layout>
