@@ -3,41 +3,47 @@
     <head>
         <meta charset = "utf-8">
         <title>Board</title>
-        <link href = "./public/css/board.css" rel = "stylesheet"> 
+        
+        @vite(['resources/css/app.css','resources/js/app.js'])
+        <link rel = "stylesheet" href = "./css/board.css">
     </head>
     <x-app-layout>
-        <x-slot name="header">募集掲示板</x-slot>
     <body>
-        <h1>対戦募集掲示板</h1>
-        <a href = "/createRecruit">募集する</a>
-        <a href = "/profile">プロフィール登録</a>
+        <h2 class = "heading">ぷよぷよeスポーツ対戦募集掲示板</h2>
+        <a class = "btn btn-border-shadow btn-border-shadow--color" href = "/createRecruit">募集する</a>
+        <a class = "btn btn-border-shadow btn-border-shadow--color" href = "/profile">プロフィール登録</a>
         <br>
-        <p>レート範囲を絞り込む</p>
+        <h4>
+            レート範囲を絞り込む<br>
+        </h4>
         @foreach($regulations as $regulation)
-        <a href="/regulations/{{$regulation->id}}">{{$regulation->rate}}</a>
+            <a class = "btn btn-border-shadow btn-border-shadow--color2" href="/regulations/{{$regulation->id}}">{{$regulation->rate}}</a>
         @endforeach
             @foreach($rooms as $room)
+                <br>
                 <div class = 'match'>
-                    <h2 class='title'>{{$room->user->name}} 
-                        
-                        
-                    </h2>
-                    <p class = 'body'> 
-                        <a href = "/room/{{$room->id}}">対戦申し込みリンク</a>
-                    </p>
+                    <img class = "image" src = "{{asset('storage/'.$room->user->image_path)}}" alt = "">
+                    <h3>{{$room->user->name}}</h3>
                     
-                    <p>試合数{{$room->matches}}</p>
-                    <a href="/regulations/{{$room->regulation->id}}">レート範囲{{$room->regulation->rate}}</a>
+                    <div class = "box18">    
+                        <p>
+                            本数    {{$room->matches}}本<br>
+                            <p href="/regulations/{{$room->regulation->id}}">レート範囲 {{$room->regulation->rate}}</p>
+                            
+                            備考 {{$room->remarks}}
+                            <div class = 'text-xl'> 
+                                <a class = "btn btn-border-shadow btn-border-shadow--color2" href = "/room/{{$room->id}}">この対戦に参加する</a>
+                            </div>
+                        </p>
+                    </div>
                     
-                    <p>備考 {{$room->remarks}}</p>
                 </div>
-                ----------------------------------------------
+                <br>
+                <h1></h1>
             @endforeach
             
         </div>
-        <div class='paginate'>
-            {{$rooms->links()}}
-        </div>
+        <div class='box18'>{{$rooms->links()}}</div>
     </body>
     </x-app-layout>
 </html>

@@ -24,41 +24,11 @@ class ChatRoomController extends Controller
         $room->fill($input)->save();
         
         
-        // $loginId = Auth::id();
         
-        // $recieve = $room->user->id;
-        
-        // // チャットの画面
-        
-        // $param = [
-        //   'send' => $loginId,
-        //   'recieve' => $recieve,
-          
-        // ];
-        
-        // // 送信 / 受信のメッセージを取得する
-        
-        // $query = Message::where('send' , $loginId)->where('recieve' , $recieve);;
-        // $query->orWhere(function($query) use($loginId , $recieve){
-        //     $query->where('send' , $recieve);
-        //     $query->where('recieve' , $loginId);
- 
-        // });
-        
-        // $messages = $query->get();
         
         return view('goal.room')->with(['room'=>$room]);
         
-        
-        
-        
-        
-        
-        
- 
-        
- 
-        // return view('goal.room' , compact('param' , 'messages'));
+   
     }
  
     /**
@@ -93,5 +63,11 @@ class ChatRoomController extends Controller
  
         return true;
  
+    }
+    
+    
+    public function delete(Room $room){
+        $room->delete();
+        return redirect('/');
     }
 }

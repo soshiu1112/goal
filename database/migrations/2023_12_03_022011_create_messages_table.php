@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('room_id')->constrained('rooms');
+            $table->foreignId('room_id')->constrained('rooms')->cascadeOnDelete();
             $table->foreignId('user_id')->comment('送信者');
             $table->text('message')->comment('メッセージ');
             $table->timestamps();

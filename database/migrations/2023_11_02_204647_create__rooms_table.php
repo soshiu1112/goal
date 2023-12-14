@@ -21,6 +21,7 @@ return new class extends Migration
             $table->Integer('matches')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
