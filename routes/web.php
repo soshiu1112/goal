@@ -37,7 +37,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/','store')->name('store');
         Route::get('/','board')->name('board');
         
-        Route::get('/createRecruit','createRecruit')->name('regulations');
+        
+        Route::get('/createRecruit','createRecruit')->name('createRecruit');
+        
     });
     
     Route::controller(RegulationController::class)->group(function(){
@@ -49,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(ChatRoomController::class)->group(function(){
         Route::post('/room/send' , 'store')->name('chatSend');
         Route::get('/room/{room}' , 'index')->name('chat.index');
+        Route::delete('/room/{room}','delete')->name('delete');
     });
     
     Route::post('/newmessage', [MessageController::class, 'newMessage']);
