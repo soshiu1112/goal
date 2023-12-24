@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('recruits', function (Blueprint $table) {
-            $table->id();          
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('regulation_id')->constrained('regulations')->nullable();
-            $table->string('matches')->nullabe();
-            $table->string('remarks')->nullable();
+        Schema::create('messages', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->foreignId('room_id')->constrained('rooms')->cascadeOnDelete();
+            $table->foreignId('user_id')->comment('送信者');
+            $table->text('message')->comment('メッセージ');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recruits');
+        Schema::dropIfExists('messages');
     }
 };

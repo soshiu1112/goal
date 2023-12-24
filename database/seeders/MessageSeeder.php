@@ -17,23 +17,25 @@ class MessageSeeder extends Seeder
     public function run()
     {
         DB::table('messages')->insert([
-            'body' => 'uooooo',
-            'room_id' =>'1',
+            'user_id' => 1,
+            'room_id' => 1,
+            'message' => 'あいうえお',
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
         DB::table('messages')->insert([
-            'body' => 'uooooo',
-            'room_id' =>'2',
+            'user_id' => 2,
+            'room_id' => 2,
+            'message' => 'あいうえおa',
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
         DB::table('messages')->insert([
-            'body' => 'uooooo',
-            'room_id' =>'3',
+            'user_id' => 1,
+            'room_id' => 3,
+            'message' => 'あいうえおaaa',
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
-        
     }
 }

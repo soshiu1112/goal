@@ -9,11 +9,13 @@ class Regulation extends Model
 {
     use HasFactory;
     
-    public function recruits(){
-        return $this->hasMany(Recruit::class);
+    public function rooms(){
+        return $this->hasMany(Room::class);
     }
     
     public function getByRegulation(int $limit_count = 5){
-        return $this->recruits()->with('regulation')->orderBy('updated_at','DESC')->paginate($limit_count);
+        return $this->rooms()->with('regulation')
+                                ->orderBy('updated_at','DESC')
+                                ->paginate($limit_count);
     }
 }
