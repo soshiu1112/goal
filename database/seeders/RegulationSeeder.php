@@ -17,7 +17,6 @@ class RegulationSeeder extends Seeder
     public function run()
     {
         DB::table('regulations')->insert([
-            'id' => '1',
             'rate' => "1500~1000",
            
             'created_at' => new Datetime(),
@@ -25,31 +24,26 @@ class RegulationSeeder extends Seeder
             ]);
         DB::table('regulations')->insert([
             
-            'id' => '2',
             'rate' => "2000~1500",
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
         DB::table('regulations')->insert([
-            'id' =>'3',
             'rate' => "2500~2000",
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
         DB::table('regulations')->insert([
-            'id' => '4',
             'rate' => "3000~2500",
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
         DB::table('regulations')->insert([
-            'id' => '5',
             'rate' => "3500~3000",
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),
             ]);
-        DB::table('regulations')->insert([
-            'id' => '6',
+        DB::table('regulations')->insert([,
             'rate' => "4000~3000",
             'created_at' => new Datetime(),
             'updated_at' => new Datetime(),

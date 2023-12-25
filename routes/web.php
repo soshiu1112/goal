@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     
     Route::controller(RegulationController::class)->group(function(){
     
-        Route::get('/regulations/{regulation}','index')->name('index');
+        Route::get('/regulation/{regulation}','index')->name('index');
     });
     
     

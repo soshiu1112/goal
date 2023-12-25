@@ -32,7 +32,7 @@ class RoomController extends Controller
         $room->fill($input)->save();
         
         $inputId = ['user_id'=>$user->id,'room_id'=>$room->id];
-        $room_user->fill($inputId)->save();
+        //$room_user->fill($inputId)->save();
         return redirect('/room/'.$room->id);
     }
     
